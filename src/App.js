@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import PostIframe from './components/PostIframe';
 
 function App() {
+  const params = { name: 'Adriano', age: '30', id: '87345-490' };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>This is an iframe receiving that data:</p>
+
+      <p><code>{ JSON.stringify(params) }</code></p>
+
+      <PostIframe 
+        frameBorder="1" 
+        src="http://iframe-poc.herokuapp.com/page-to-post/" 
+        params={params} />
     </div>
   );
 }
